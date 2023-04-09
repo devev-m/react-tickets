@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #131313;
+  font-weight: 600;
+}
+
+.header a:hover {
+  color: #1f799c;
+}
