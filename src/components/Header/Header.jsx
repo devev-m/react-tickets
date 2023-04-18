@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export default function Header() {
+export const Header = () => {
    return (
       <div className='header'>
          <h1 className="header__title">React tickets App</h1>
