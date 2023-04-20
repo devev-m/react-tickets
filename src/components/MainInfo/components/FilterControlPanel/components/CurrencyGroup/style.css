@@ -1,17 +1,11 @@
-.filters__currenc-title {
+.filters__currency-title {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
-  padding: 10px 0 10px;
+  padding: 0 0 10px;
 }
 
 .filters__currency-buttons {
   display: flex;
   padding-bottom: 20px;
-}
-
-.filters__currency-buttons button {
-  flex: 1;
-  padding: 5px;
-  text-align: center;
 }

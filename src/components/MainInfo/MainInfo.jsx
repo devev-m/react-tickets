@@ -1,14 +1,27 @@
 import React from 'react';
 import './style.css';
+import tickets from '../../tickets.json';
 import { FilterControlPanel } from './components/FilterControlPanel/FilterControlPanel';
-import { TicketsGroup } from './components/TicketsGroup/TicketsGroup';
+import { Ticket } from './components/Ticket/Ticket';
 
 export const MainInfo = () => {
+  const ticketsArray = tickets.tickets;
 
   return (
-    <div className='main'>
+    <div className="main">
       <FilterControlPanel />
-      <TicketsGroup />
-    </div >
-  )
-}
+      <div className="tickets">
+        {ticketsArray
+          .sort((a, b) => a.price - b.price)
+          .map((item) => (
+            <Ticket
+              key={
+                item.departure_date + item.departure_time + item.arrival_date + item.arrival_time
+              }
+              item={item}
+            />
+          ))}
+      </div>
+    </div>
+  );
+};

@@ -1,0 +1,25 @@
+.filters__currency-button {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #d2d5d6;
+  color: #2196f3;
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.filters__currency-button_active {
+  background-color: #2196f3;
+  color: #fff;
+  font-weight: 400;
+}
+
+.filters__currency-button:nth-child(1) {
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+.filters__currency-button:nth-child(3) {
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+}
