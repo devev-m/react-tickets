@@ -3,9 +3,14 @@ import './style.css';
 import tickets from '../../tickets.json';
 import { FilterControlPanel } from './components/FilterControlPanel/FilterControlPanel';
 import { Ticket } from './components/Ticket/Ticket';
+import { useSelector } from 'react-redux';
 
 export const MainInfo = () => {
   const ticketsArray = tickets.tickets;
+
+  const data = useSelector((state) => state.data);
+
+  console.log(data.data);
 
   return (
     <div className="main">

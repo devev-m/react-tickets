@@ -8,6 +8,7 @@ export const Header = () => {
       <a
         className="header__link"
         href="https://github.com/devev-m/react-tickets"
+        target="_blunk"
       >
         <img
           className="header__image"

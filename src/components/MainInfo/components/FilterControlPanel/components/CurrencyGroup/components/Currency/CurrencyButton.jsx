@@ -1,9 +1,9 @@
 import React from 'react';
 import './style.css';
 
-export const CurrencyButton = ({ name, activeButton, setActiveButton }) => {
+export const CurrencyButton = ({ name, activeButton, handleClick }) => {
   const toggleActiveButton = (e) => {
-    setActiveButton(e.target.innerText);
+    handleClick(e.target.innerText);
   };
 
   return (
@@ -13,7 +13,7 @@ export const CurrencyButton = ({ name, activeButton, setActiveButton }) => {
           ? 'filters__currency-button filters__currency-button_active'
           : 'filters__currency-button'
       }
-      onClick={(e) => toggleActiveButton(e)}
+      onClick={toggleActiveButton}
     >
       {name}
     </button>
