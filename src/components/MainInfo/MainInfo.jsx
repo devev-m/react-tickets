@@ -10,7 +10,7 @@ export const MainInfo = () => {
 
   const data = useSelector((state) => state.data);
 
-  console.log(data.data);
+  const currency = data.data;
 
   return (
     <div className="main">
@@ -24,6 +24,7 @@ export const MainInfo = () => {
                 item.departure_date + item.departure_time + item.arrival_date + item.arrival_time
               }
               item={item}
+              currency={currency}
             />
           ))}
       </div>

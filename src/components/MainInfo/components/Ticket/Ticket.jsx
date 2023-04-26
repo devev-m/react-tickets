@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { GetDate } from './GetDate';
 
-export const Ticket = ({ item }) => {
+export const Ticket = ({ item, currency }) => {
   const ticketStops =
     item.stops === 0
       ? 'Без пересадок'
@@ -14,7 +14,20 @@ export const Ticket = ({ item }) => {
       ? '3 пересадки'
       : '';
 
+  const currentCurrency =
+    currency === 'RUB' ? '₽' : currency === 'USD' ? '$' : currency === 'EUR' ? '€' : '';
+
+  const currentPrice =
+    currency === 'RUB'
+      ? item.price
+      : currency === 'USD'
+      ? Math.round(item.price / 75)
+      : currency === 'EUR'
+      ? Math.round(item.price / 80)
+      : '';
+
   const departureDate = GetDate(item.departure_date);
+
   const arrivalDate = GetDate(item.arrival_date);
 
   return (
@@ -26,7 +39,7 @@ export const Ticket = ({ item }) => {
           alt="logo-flight"
         />
         <button className="tickets__item-left-button">
-          <span>Купить</span> за {item.price}
+          <span>Купить</span> за {currentPrice} {currentCurrency}
         </button>
       </div>
       <div className="tickets__item-right">

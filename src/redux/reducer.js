@@ -1,5 +1,3 @@
-// import { SET_CURRENCY } from './action';
-
 const initialState = {
   data: 'RUB',
 };
@@ -9,6 +7,6 @@ export const reducer = (state = initialState, action) => {
     case 'SET_CURRENCY':
       return { ...state, data: action.payload };
     default:
-      return state;
+      return { ...state, data: initialState };
   }
 };
