@@ -1,13 +1,13 @@
 import React from 'react';
 import './styles.css';
 
-export const CheckboxItem = ({ name, isChecked, checkVisible, checkFromButtonOnly }) => {
-  const checkIconVisible = () => {
-    checkVisible(name);
+export const CheckboxItem = ({ name, isChecked, checkUsingInput, checkUsingButtonOnly }) => {
+  const clickFromInput = () => {
+    checkUsingInput(name);
   };
 
-  const checkThisIconVisible = () => {
-    checkFromButtonOnly(name);
+  const clickFromButtonOnly = () => {
+    checkUsingButtonOnly(name);
   };
 
   return (
@@ -15,7 +15,7 @@ export const CheckboxItem = ({ name, isChecked, checkVisible, checkFromButtonOnl
       <div className="filters__checkbox-item-name">
         <label className="filters__checkbox-item-label">
           <input
-            onChange={checkIconVisible}
+            onChange={clickFromInput}
             className="filters__checkbox-item-input"
             type="checkbox"
           />
@@ -32,7 +32,7 @@ export const CheckboxItem = ({ name, isChecked, checkVisible, checkFromButtonOnl
       {name !== 'Все' && (
         <div
           className="filters__checkbox-item-only"
-          onClick={checkThisIconVisible}
+          onClick={clickFromButtonOnly}
         >
           Только
         </div>

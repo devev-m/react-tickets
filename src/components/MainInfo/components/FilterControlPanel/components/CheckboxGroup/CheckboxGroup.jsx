@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './style.css';
 import { CheckboxItem } from './components/CheckboxItem';
+import { setCheckbox } from '../../../../../../redux/actions';
 
 export const CheckboxGroup = () => {
   const [checkboxItemArr, setCheckboxItemArr] = useState([
     { id: 1, name: 'Все', isChecked: true },
-    { id: 2, name: 'Без пересадок', isChecked: true },
-    { id: 3, name: '1 пересадка', isChecked: true },
-    { id: 4, name: '2 пересадки', isChecked: true },
-    { id: 5, name: '3 пересадки', isChecked: true },
+    { id: 2, name: 'Без пересадок', stops: 0, isChecked: true },
+    { id: 3, name: '1 пересадка', stops: 1, isChecked: true },
+    { id: 4, name: '2 пересадки', stops: 2, isChecked: true },
+    { id: 5, name: '3 пересадки', stops: 3, isChecked: true },
   ]);
 
-  const checkVisible = (name) => {
+  const dispatch = useDispatch();
+
+  const checkUsingInput = (name) => {
     const newArr = [...checkboxItemArr];
 
     const clickedItem = checkboxItemArr.find((elem) => elem.name === name);
@@ -32,9 +36,10 @@ export const CheckboxGroup = () => {
       }
     }
     setCheckboxItemArr(newArr);
+    dispatch(setCheckbox(checkboxItemArr));
   };
 
-  const checkFromButtonOnly = (name) => {
+  const checkUsingButtonOnly = (name) => {
     const newArr = [...checkboxItemArr];
 
     const clickedItem = checkboxItemArr.find((elem) => elem.name === name);
@@ -44,6 +49,7 @@ export const CheckboxGroup = () => {
     clickedItem.isChecked = true;
 
     setCheckboxItemArr(newArr);
+    dispatch(setCheckbox(checkboxItemArr));
   };
 
   return (
@@ -55,8 +61,8 @@ export const CheckboxGroup = () => {
           key={item.id}
           name={item.name}
           isChecked={item.isChecked}
-          checkVisible={checkVisible}
-          checkFromButtonOnly={checkFromButtonOnly}
+          checkUsingInput={checkUsingInput}
+          checkUsingButtonOnly={checkUsingButtonOnly}
         />
       ))}
     </div>

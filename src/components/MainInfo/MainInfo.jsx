@@ -8,15 +8,24 @@ import { useSelector } from 'react-redux';
 export const MainInfo = () => {
   const ticketsArray = tickets.tickets;
 
-  const data = useSelector((state) => state.data);
+  const data = useSelector((state) => {
+    return state;
+  });
 
-  const currency = data.data;
+  const checkboxArray = data.checkbox;
+
+  const mergeArr = ticketsArray
+    .map((item1) => {
+      const item2 = checkboxArray.find((item2) => item1.stops === item2.stops);
+      return { ...item1, ...item2 };
+    })
+    .filter((item) => item.isChecked === true);
 
   return (
     <div className="main">
       <FilterControlPanel />
       <div className="tickets">
-        {ticketsArray
+        {(checkboxArray.length === 0 ? ticketsArray : mergeArr)
           .sort((a, b) => a.price - b.price)
           .map((item) => (
             <Ticket
@@ -24,7 +33,7 @@ export const MainInfo = () => {
                 item.departure_date + item.departure_time + item.arrival_date + item.arrival_time
               }
               item={item}
-              currency={currency}
+              currency={data.currency}
             />
           ))}
       </div>

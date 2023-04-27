@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setData } from '../../../../../../redux/action';
-
 import './style.css';
+import { setCurrency } from '../../../../../../redux/actions';
 import { CurrencyButton } from './components/Currency/CurrencyButton';
 
 export const CurrencyGroup = () => {
@@ -14,7 +13,7 @@ export const CurrencyGroup = () => {
 
   const handleClick = (name) => {
     setActiveButton(name);
-    dispatch(setData({ data: name }));
+    dispatch(setCurrency(name));
   };
 
   return (
