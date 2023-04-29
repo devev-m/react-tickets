@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a,
 a:visited {
   text-decoration: none;

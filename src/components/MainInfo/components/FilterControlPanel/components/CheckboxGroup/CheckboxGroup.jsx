@@ -29,8 +29,17 @@ export const CheckboxGroup = () => {
         newArr.forEach((item) => (item.isChecked = false));
       }
     } else {
+      newArr[0].isChecked = false;
       if (isChecked === false) {
         clickedItem.isChecked = true;
+        if (
+          newArr[1].isChecked === true &&
+          newArr[2].isChecked === true &&
+          newArr[3].isChecked === true &&
+          newArr[4].isChecked === true
+        ) {
+          newArr[0].isChecked = true;
+        }
       } else if (isChecked === true) {
         clickedItem.isChecked = false;
       }
