@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './style.css';
-import { setCurrency } from '../../../../../../redux/actions';
+import { setCurrency } from '../../../../store/actions';
 import { CurrencyButton } from './components/Currency/CurrencyButton';
 
 export const CurrencyGroup = () => {

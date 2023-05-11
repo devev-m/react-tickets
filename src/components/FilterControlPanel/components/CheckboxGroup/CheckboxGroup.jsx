@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './style.css';
 import { CheckboxItem } from './components/CheckboxItem';
-import { setCheckbox } from '../../../../../../redux/actions';
+import { setCheckbox } from '../../../../store/actions';
 
 export const CheckboxGroup = () => {
   const [checkboxItemArr, setCheckboxItemArr] = useState([
